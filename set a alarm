@@ -1,0 +1,23 @@
+--------pip install pygame--------
+--------pip install time----------
+import pygame
+import time
+Set_Alarm = input("Set the alarm as H:M:S:")
+Actual_Time = time.strftime("%I:%M:%S")
+
+
+while (Actual_Time != Set_Alarm):
+   Actual_Time = time.strftime("%I:%M:%S")
+
+if (Actual_Time == Set_Alarm):
+	print("to stop alarm press spacebar and enter")
+	file = 'sweet_alarm - Copy.mp3'
+	pygame.mixer.init()
+	pygame.init()
+	pygame.mixer.music.load(file)
+	pygame.mixer.music.play()
+
+	while pygame.mixer.music.get_busy():
+		control = input()
+		if control == " ":
+			pygame.mixer.music.pause()
